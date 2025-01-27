@@ -1,6 +1,6 @@
 import React from "react";
 
-function InputField({ handleAnswer }) {
+function InputField({ handleAnswer, totalAnswer, finalAnswer }) {
   const [guess, setGuess] = React.useState("");
 
   const handleSubmit = (e) => {
@@ -19,12 +19,17 @@ function InputField({ handleAnswer }) {
     setGuess("");
   };
 
+  const checkTotalAnswer = () => {
+    return totalAnswer > 5;
+  };
+
   return (
     <div>
       <form className="guess-input-wrapper" onSubmit={handleSubmit}>
         <label htmlFor="guess-input">Enter guess:</label>
         <input
           required
+          disabled={checkTotalAnswer() || finalAnswer}
           id="guess-input"
           type="text"
           value={guess}
