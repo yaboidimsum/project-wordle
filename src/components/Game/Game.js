@@ -17,7 +17,7 @@ function Game() {
   const [totalAnswer, setTotalAnswer] = React.useState(0);
   const [finalAnswer, setFinalAnswer] = React.useState(false);
 
-  arrValue = [...guessAnswer];
+  const arrValue = [...guessAnswer];
 
   const handleAnswer = (value) => {
     if (value === answer) {
